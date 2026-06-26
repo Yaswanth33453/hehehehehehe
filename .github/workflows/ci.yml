@@ -1,0 +1,24 @@
+name: Python Math Tool CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 1. Clone Code to Cloud Server
+      uses: actions/checkout@v4
+
+    - name: 2. Initialize Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: 3. Install Pytest Tool
+      run: pip install pytest
+
+    - name: 4. Execute Automated Tests
+      run: pytest
